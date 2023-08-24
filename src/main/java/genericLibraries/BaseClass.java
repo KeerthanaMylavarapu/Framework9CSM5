@@ -1,5 +1,7 @@
 package genericLibraries;
 
+import java.sql.Driver;
+
 import org.apache.poi.hpsf.Property;
 import org.openqa.selenium.WrapsDriver;
 import org.testng.annotations.AfterClass;
@@ -48,35 +50,4 @@ public class BaseClass {
 	}
 	@BeforeMethod
 	public void methodConfiguration() {
-		 driver = webutil.navigateToApp(property.getData("Browser"), property.getData("url"), Long.parseLong(property.getDat("time")));
-	    sDriver=driver;
-		
-		Welcome=new WelocomePage(driver);
-		Login=new ShopperLoginPage(driver);
-		Home=new HomePage(driver);
-		Signup = new SignUpPage(driver);
-		myProfilepage=new MyProfilepage(driver);
-		myAddress = new MyAddressPage(driver);
-		Headphonepage= new HeadPhonesPage(driver);
-		Cartpage = new CartPage(driver);
-		AddressFormPage= new AddressFormPage(driver);
-	}
-	@AfterMethod
-	public void methodTeardown() {
-		Home.clickProfileButton();
-		Home.clickLogout();
-		webutil.closeAllbrowser();
-	}
-	@AfterClass
-	public void classTeardown() {
-		excel.closeExcel();
-	}
-}
-		
-		
-		
-		
-	}
-		
-	}
-		
+		 driver = webutil.navigateToApp(property.getData(), null, 0);
